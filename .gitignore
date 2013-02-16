@@ -1,0 +1,13 @@
+*.pyo
+*.pyc
+venv
+.project
+.pydevproject
+.settings
+*.resources.prefs
+data.db
+.idea
+*.xml
+report.txt
+dev.db
+
