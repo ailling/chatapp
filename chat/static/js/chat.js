@@ -100,7 +100,8 @@ $(function() {
     };
 
     var start = function() {
-        socket = new io.Socket();
+        var url = 'ec2-50-19-156-150.compute-1.amazonaws.com';
+        socket = new io.Socket(url);
         socket.connect();
         socket.on('connect', connected);
         socket.on('disconnect', disconnected);

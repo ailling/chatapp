@@ -5,6 +5,8 @@ from django_socketio import events
 
 from chat.models import ChatRoom
 
+import pdb
+
 
 @events.on_message(channel="^room-")
 def message(request, socket, context, message):

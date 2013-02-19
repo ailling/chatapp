@@ -2,7 +2,7 @@
 from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import get_object_or_404, render, redirect
 from django_socketio import broadcast, broadcast_channel, NoSocket
-
+from django.views.decorators.csrf import csrf_exempt
 from chat.models import ChatRoom
 
 
@@ -34,11 +34,12 @@ def create(request):
     return redirect(rooms)
 
 
-@user_passes_test(lambda user: user.is_staff)
+#@user_passes_test(lambda user: user.is_staff)
+@csrf_exempt
 def system_message(request, template="system_message.html"):
     context = {"rooms": ChatRoom.objects.all()}
     if request.method == "POST":
-        room = request.POST["room"]
+        room = request.POST.get("room", None)
         data = {"action": "system", "message": request.POST["message"]}
         try:
             if room:
