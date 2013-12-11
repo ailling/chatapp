@@ -100,7 +100,8 @@ $(function() {
     };
 
     var start = function() {
-        var url = 'ec2-50-19-156-150.compute-1.amazonaws.com';
+//        var url = 'ec2-50-19-156-150.compute-1.amazonaws.com';
+        var url = 'localhost';
         socket = new io.Socket(url);
         socket.connect();
         socket.on('connect', connected);

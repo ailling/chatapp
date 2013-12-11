@@ -11,8 +11,8 @@ class Command(BaseCommand):
         print 'found %d rooms' % rooms.count()
 
         message = 'test message'
-#        url = 'http://localhost:9000/chat/system_message/'
-        url = 'http://ec2-50-19-156-150.compute-1.amazonaws.com:9000/chat/system_message/'
+        url = 'http://localhost:9000/chat/system_message/'
+        # url = 'http://ec2-50-19-156-150.compute-1.amazonaws.com:9000/chat/system_message/'
         requests.post(url, data={'message': message})
 #        data = {'action': 'system', 'message': message}
 #        broadcast(data)
